@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colorful Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 90%;
+            height: 40px;
+            margin: 10px 0;
+            font-size: 16px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            width: 60px;
+            height: 40px;
+            margin: 5px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 20px;
+            color: #222;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>🌟 Simple Calculator</h2>
+        <form action="/calculate" method="GET">
+            <input type="number" name="num1" required placeholder="Enter first number"><br>
+            <input type="number" name="num2" required placeholder="Enter second number"><br>
+
+            <div class="buttons">
+                <button type="submit" name="operation" value="+">+</button>
+                <button type="submit" name="operation" value="-">−</button>
+                <button type="submit" name="operation" value="*">×</button>
+                <button type="submit" name="operation" value="/">÷</button>
+            </div>
+        </form>
+
+        {% if result is not none %}
+            <div class="result">
+                Result: {{ result }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
